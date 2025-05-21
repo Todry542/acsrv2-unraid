@@ -38,7 +38,6 @@ function utils.jsonOpen(location, filename)
     return result
 end
 
--- let's call this future proofing
 -- broadcast chat to all drivers on server
 function utils.broadcastChat(message)
     local success = broadcastChat(message)
@@ -50,10 +49,10 @@ end
 
 -- send chat to specific driver on server, by guid
 function utils.sendChat(message, guid)
-    local success = sendChatChat(message, guid)
+    local success = sendChat(message, guid)
 
     if not success or success == nil then
-        print("lua: failed to broadcast chat")
+        print("lua: failed to send chat")
     end
 end
 

@@ -217,8 +217,8 @@ server:
   # support as we do not have access to the source code of the plugins.
   disable_plugins: false
 
-  # performance mode disables Live Timings entirely, and prioritises low CPU
-  # usage.
+  # performance mode disables Live Timings and Race Control entirely,
+  # and prioritises low CPU usage.
   performance_mode: false
 
   # set this to 'true' if you don't want server manager to open a browser window

@@ -30,29 +30,21 @@ chown -R "$PUID:$PGID" "$HOME_DIR"
 
 # 🔐 S'assurer que le dossier est accessible en écriture
 if [ -d "$ACSM_DIR" ]; then
-    echo "🛡️  Application de chmod pour l'écriture sur $ACSM_DIR"
+    echo "🛡️ Application de chmod pour l'écriture sur $ACSM_DIR"
     chmod -R ug+rwX "$ACSM_DIR"
+else
+    mkdir -p "$ACSM_DIR"
+    chown "$PUID:$PGID" "$ACSM_DIR"
 fi
 
-# 📦 Vérification de l'exécutable
-if [ ! -x "$MAIN_EXEC" ]; then
-    echo "⚠️  server-manager introuvable. Tentative de restauration..."
-    if [ -d "$ACSM_DIR" ] && [ -w "$ACSM_DIR" ]; then
-        cp -r "$ORIGINAL_DIR/"* "$ACSM_DIR/" || {
-            echo "❌ Erreur de copie vers $ACSM_DIR"
-            exit 1
-        }
-        chown -R "$PUID:$PGID" "$ACSM_DIR"
-        find "$ACSM_DIR" -type f -iname "*.sh" -exec chmod +x {} \;
-    else
-        echo "❌ $ACSM_DIR non accessible. Vérifiez vos volumes et droits Unraid."
-        ls -ld "$ACSM_DIR"
-        id
-        exit 1
-    fi
-fi
+# 📦 Copier systématiquement les exécutables depuis l'original
+echo "📥 Copie des exécutables server-manager et assetto-multiserver-manager..."
+cp -f "$ORIGINAL_DIR/server-manager" "$ACSM_DIR/"
+cp -f "$ORIGINAL_DIR/assetto-multiserver-manager" "$ACSM_DIR/"
+chown "$PUID:$PGID" "$ACSM_DIR/server-manager" "$ACSM_DIR/assetto-multiserver-manager"
+chmod +x "$ACSM_DIR/server-manager" "$ACSM_DIR/assetto-multiserver-manager"
 
+# 🚀 Lancement de server-manager
 echo "🚀 Lancement de server-manager..."
-
 cd "$ACSM_DIR"
 exec su -s /bin/bash "$USER" -c "./server-manager"

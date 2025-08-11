@@ -1,3 +1,36 @@
+v2.4.7
+------
+
+Added:
+
+* Added a new "Collision Replay" system:
+  - If enabled, Collision Replays are automatically generated for any collision between drivers, including helpful data such as driver positions, speed, braking, steering angle and more.
+  - Collision Replays can be viewed during an event from the Race Control page. They come through as a separate message after the main collision message, which may take a few seconds as the replay is rendered.
+  - Collision Replays can be viewed after an event has completed from the Results file, in the Events tab. Please note that the oldest collision replays are automatically deleted when the total collision replay size exceeds 512MB by default. This file size limit can be configured in the Server Options. Replays can be downloaded to be kept for longer.
+  - Collision Replays can be enabled and configured on the Server Options page, with the recorded time before and after a collision being configurable up to a maximum of 30 seconds each.
+* Added a new simplified Live Timings API available at `/api/live-timings/basic.json`, which is limited to one request every second. More information including API structure is available on [this wiki page](https://wiki.emperorservers.com/assetto-corsa-server-manager/web-api).
+* The "Failed To Meet Minimum Long Pits Penalty" will now be applied for each uncompleted long pit stop (for example with 2 minimum long pits and 30 seconds penalty, a driver that completes no long stops will be given a 1 minute penalty).
+* Added total weather duration (including transition time) to the preview header of each weather preset when CSP Transitions are active. Also add weighting to preview header when CSP Transitions (weighted random) are active.
+* Added `/countdown` admin command which can be used to trigger a countdown that is broadcast to all drivers. Modifiers can be optionally added: quick (Ready -> Go with random interval), random (random number countdown between 2 and 10), any number between 2 and 10. 
+* A Pit Lane Area can now be drawn for any track/layout from the content page of the track, by going to "Track Map Features" -> "Pit Lane Detection" for the desired layout. The old automatic detection is still in place and will be used when a pit area is not defined, but it is no longer possible to modify the length of the pit line for that system. The new system is covered in detail on the [Emperor Servers Wiki](https://wiki.emperorservers.com/en/assetto-corsa-server-manager/pit-lane-detection).
+* Added `/mark_pitlane_start` and `/mark_pitlane_end` admin commands, which can be used to mark specific points for pit lane start and end which will then be displayed on the Pit Lane Detection page to assist in drawing the pit lane area.
+* Collisions in the event list of a results file now also list what lap (for the primary involved driver) the collision occurred on.
+* Added Speed Trap Hit UDP Event when enhanced reporting is enabled, more detail is available on the [Emperor Servers Wiki](https://wiki.emperorservers.com/assetto-corsa-server-manager/udp-plugins).
+* Added Championship List API endpoint at `/api/championships/list.json`. Also added Championship Api List Permission to access this endpoint, automatically given to accounts with the Standings Endpoint permission on upgrade.
+* Added a specific Kick Message type that indicates when a UDP Plugin kicked a driver.
+
+Fixed:
+
+* Fixed an issue where the "Track Map Features" may not work for tracks with multiple layouts where each layout had a name starting with the same number.
+* Fixed an issue where the minimum value for the Wait Time in a Race Weekend session would not update if a warm up session was added.
+* Fixed a rendering issue with session types in new Race Weekend sessions.
+* Fixed an issue when using Qualifying as the Reverse Grid Race Source could cause the 2nd Race grid to be formed incorrectly.
+* Fixed an issue where "Time Attack" events would revert to the settings they were started with whenever the session looped or event was stopped, preventing admins from being able to modify the event whilst it was running.
+* Weather duration is now limited to a maximum of 1440 minutes (24 hours) to avoid issues with longer weather configurations (0 can still be used to run a weather from whenever it starts to the end of the session).
+* Fixed an issue where it was not possible to "View Answers" for a Championship registration request that contained a driver swap GUID.
+
+---
+
 v2.4.6
 ------
 

@@ -1,3 +1,31 @@
+v2.4.8
+------
+
+Added:
+
+* Improved how UDP Plugins work in the Assetto Corsa Server:
+  - It is now possible to specify multiple plugin listeners in the Server Options, meaning that you can set up multiple plugins without chaining them together.
+  - Real Penalty, sTracker and KissMyRank are now automatically configured to use their own plugin listener, fixing any issues that occurred with chaining these plugins.
+  - Renamed the settings for the UDP Plugins:
+      * "UDP Plugin Local Port" is now "Listen Address"
+      * "UDP Plugin Address" is now "Send Address"
+  - It is now possible to specify an IP allowlist for plugins. If an allowlist is specified, the UDP Plugin will ignore any messages from IP addresses that are not in the allowlist.
+* Added Next Session and Restart Session buttons to the Live Timings page, accessible by users with the Race Control Admin permission.
+* Added "Potential" column to Live Timings, which shows the potential fastest lap of the driver based on their fastest sectors, can be shown or hidden from the Live Timings Settings.
+* Added a "My Events" page that can be accessed from the user icon on the right of the nav bar (via Steam login). This page shows a driver details on any upcoming events in Championships they have registered for on the server.
+* Race Weekends can now be excluded from "Ignore X Worst Events" like normal Championship events, using the "Exclude from Ignored Worst Events" switch when creating or editing a Race Weekend within a Championship.
+
+Fixed:
+
+* Fixed an issue where Wait Time would reset to 300 when editing a Race Weekend session.
+* Disable Push To Pass and Count Out Lap settings will now be inherited by a Championship Looping Practice from the main event Practice session configuration (if a Practice session is configured when the Looping Practice is started).
+
+Changed:
+
+* Partially locked and VIP slots are no longer shown in the lobby to drivers that cannot connect to them, rather than being shown as having a driver connected.
+
+---
+
 v2.4.7
 ------
 

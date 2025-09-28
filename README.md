@@ -26,5 +26,6 @@ docker run --name='ACSMv2' -d \
   -v '/path/to/steamcmd':'/home/steamcmd/' \
   --restart=unless-stopped 'todry542/acsrv2:latest' 
 ```
+Warning : You need to put a config.yml & licence file in the ACSM Folder !
 
 This Docker was mainly edited for better use with Unraid.

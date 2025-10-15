@@ -1,3 +1,25 @@
+v2.4.9
+------
+
+Added:
+
+* The My Events page now includes links to the content page of any car/track listed.
+* The My Events page now includes any Championships with open Sign Up Forms that the driver is not currently registered to.
+* Added "All Drivers" option to Split Type in Race Weekend sorting menu between sessions, if enabled all drivers will always be taken to the next session.
+* The time since the last Speed Trap Hit or new lap (whichever is most recent) is now shown in Speed Trap descriptions in Race Control.
+* Added information about partial searches to Results search help.
+* Drivers in the Block List are now prevented from registering to Championships.
+* Adds support for exporting a Race Weekend Entry List as an `entry_list.ini` file.
+
+Fixed:
+
+* Improved performance when starting the Manager or importing a Championship/Race Weekend with many scheduled events.
+* Improved behaviour of Race Weekend Events on the My Events page.
+* Fixed an issue where VIPs could not connect to VIP slots.
+* Moved the VIP and Reserved Slot descriptions in the Content Manager Welcome message to be a placeholder template - you can use `{{ .ReservedSlotsDescription }}` in the Messages page to display this. Also reduced the length of these slot descriptions.
+
+---
+
 v2.4.8
 ------
 

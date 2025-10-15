@@ -29,3 +29,5 @@ docker run --name='ACSMv2' -d \
 Warning : You need to put a config.yml & licence file in the ACSM Folder !
 
 This Docker was mainly edited for better use with Unraid.
+
+My docker version here : https://hub.docker.com/r/todry542/acsrv2

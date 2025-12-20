@@ -1,3 +1,27 @@
+v2.4.10
+-------
+
+Added:
+
+* Inactive Championships now display an Inactive badge in the Championship List and a warning message on the Championship page.
+* Added "Blue Flag Interval" to the Live Timings settings on the Server Options page, which can be used to configure the time interval under which blue flags will trigger, please note that this only affects blue flags on the Live Timings page, not the flags in-game.
+* Added "Minimum Valid Lap Time" to the Server Options page, which can be used to configure the minimum time in seconds a lap must take to be counted as valid. Previously this was locked to 1 second, which this new option defaults to.
+
+Fixed:
+
+* Fixed an issue where sorting by "Championship Standings Order" in a Race Weekend may be incorrect when using the "Ignore X Worst Events" setting. Race Weekends are now only factored into "Ignore X Worst Events" when all sessions in the Race Weekend that give points have been completed.
+* Car names will no longer display under the home page buttons when many cars are active on the server.
+* Prevented very rare case where automatic UDP port selection for plugins could select ports that would be in use by one of the active plugins.
+* Inactive Championships are now excluded from the My Events page for all users. 
+* Fixed an issue where `UDP_PLUGIN_LOCAL_PORT` and `UDP_PLUGIN_ADDRESS` may not have been set correctly in `server_cfg.ini`.
+* Fixed an issue where session points for Race Weekend Qualifying or Practice sessions would be reset to 0 in the form when the session was edited.
+* Fixed an issue where any lap based penalties (BoP, Drive Through) from cuts would be set then cleared one lap sooner than they should have been, including one lap penalties being cleared immediately.
+* Fixed an issue where "Time Penalty Duration" for a Driver Swaps would not save properly.
+* Fixed a rare Server Manager crash caused by the Discord Bot.
+* Fixed an issue where the Auto Loop would restart instead of continuing from the last running event when ACSM was restarted with "Restart Event On Server Manager Launch" enabled.
+
+---
+
 v2.4.9
 ------
 

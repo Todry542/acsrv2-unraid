@@ -1,3 +1,32 @@
+v2.4.11
+-------
+
+Added:
+
+* Improved the Audit Logs functionality in the Server Manager:
+    - Audit Logs now store details of how data has changed. These can be viewed by clicking on the "Expand" button on an entry in the Audit Logs page.
+    - Audit Logs will now contain more accurate data about which user changed an item, and fewer entries that are not useful for investigating changes.
+    - Changes made by internal Server Manager systems (e.g. process management, scheduler, migrations, maintenance tasks) are now visible in Audit Logs pages.
+    - Added pagination to the Audit Logs page.
+    - Audit Log entries older than 60 days are cleaned up automatically by a maintenance task.
+* Added the ability to give time penalties to drivers in race sessions to the Race Control admin form.
+* Added Strict GUID Validation to all GUID inputs. This validation checks that GUIDs match the correct format. This can be disabled using the "Strict GUID Validation" Server Option.
+* Humidity level will now be set when Weather Type is set to CSP Weather with transitions (including weighted random and live weather). Humidity can be set in the weather configuration panel, or will be automatically set based on the weather type if set to -1.
+* Race Weekend Sessions will now indicate when they are scheduled to start once their parent session(s) are completed.
+* Added "Live Weather Fixed Time" to Live Weather options, if enabled and set then the Live Weather system will lock the in-game time to the time specified whilst live weather conditions continue as normal, intended for long practice sessions.
+
+Fixed:
+
+* Fixed an issue where an uploaded weather with incorrect formatting in `weather.ini` could cause certain Manager pages to fail to load.
+* Fixed an issue where "Race Weekend Standings Order" may not properly sort drivers in some scenarios.
+* Fixed an issue where rebuilding search indices could fail if there were not any Drift Results files.
+* Fixed an issue where Qualifying Time could be set incorrectly if two drivers used the same car in a session, and the second driver had a cut in their first lap after joining the server.
+* Fixed an issue where Championship Entry Lists change order when saving a Championship.
+* Removed the "Import Entry List" button in the Championship Event setup page.
+* Fixed an issue where using "Custom Shaders Patch with Transitions (Weighted Random)" with the "Time Progression Multiplier" set to 0 could cause a server crash.
+
+---
+
 v2.4.10
 -------
 

@@ -1,3 +1,13 @@
+v2.4.12
+-------
+
+Fixed:
+
+* This update resolves a memory leak issue introduced in v2.4.11 that could occur when updating large data structures (e.g. Championships) with a significant amount of new data.
+
+---
+
+
 v2.4.11
 -------
 

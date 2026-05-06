@@ -127,6 +127,27 @@ http:
 monitoring:
   enabled: true
 
+  # allowed is an array of specific monitoring types that can be enabled.
+  # if 'enabled' (above) is true, and no monitors are specified here, all
+  # monitors are allowed.
+  #
+  # you can use this setting to only enable specific monitoring types, e.g.
+  # just "prometheus".
+  #
+  # available monitors are:
+  #    - "sentry-backend"
+  #    - "sentry-frontend"
+  #    - "google-analytics"
+  #    - "prometheus"
+  #
+  # if you are unsure, you can leave this setting at its default value.
+  allowed:
+    - "sentry-backend"
+    - "sentry-frontend"
+    - "google-analytics"
+    - "prometheus"
+
+
 ################################################################################
 #
 #  data storage - where server manager keeps your data!

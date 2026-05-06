@@ -1,3 +1,58 @@
+v2.4.15
+-------
+
+Added:
+
+* One Shot Qualifying will now display specific UI elements for a single run on point to point tracks if "Count Out Lap" is enabled in the Qualifying settings.
+
+Fixed:
+
+* Fixed an issue with the Lua DRS App where a single detection point for two zones would only allow DRS in the first zone. Also fixed an issue where a detection point within a zone would not work.
+* Fixed an issue where One Shot Qualifying was not compatible with the "Generate GUID From Name" setting.
+* Fixed a server freeze that could occur when moving between sessions.
+* Fixed an issue where some KN5 files could be added as server required checksums incorrectly.
+
+---
+
+v2.4.14
+-------
+
+Fixed:
+
+* Fixed an issue where it was not possible to register to a championship that only had one class.
+
+---
+
+v2.4.13
+-------
+
+Added:
+
+* Added integration with CSP Lua Online Scripts. This feature is active if the "Required Minimum CSP Version" is set to 2144 or greater, and the "Enable ACSM Custom Shaders Patch Scripts" Server Option is enabled.
+* Added One Shot Qualifying as an option for Qualifying Type. This mode leverages CSP Lua Online Scripts to allow drivers only one outlap and flying lap during a Qualifying session, after which they will be sent to the pits with locked controls. Requires CSP 2144 or later.
+* Added improved pit lane detection using in-game reporting if CSP Lua Online Scripts are enabled.
+* Added ACSM DRS Lua Online Script, which will enforce correct DRS usage for compatible cars and tracks with an in-game widget showing DRS status and audible beep when entering a zone if DRS is available. Enabled via the "Enable DRS Lua App" in the "Rules" section of the race form with configuration for DRS detection window and lap to enable DRS. Requires CSP 2144 or later. 
+* Track and Car Notes can now be accessed in the "Content Manager Welcome Message" as the variables `TrackNotes` and `CarNotes` respectively. `TrackNotes` is a string and `CarNotes` is a map of car names to notes for each car. More details and an example can be found on the [Emperor Servers Wiki](https://wiki.emperorservers.com/assetto-corsa-server-manager/server-messages-and-templates#content-manager-welcome-message).
+* Added a warning that is displayed if Server Manager detects that a Race Weekend Session is being started with more Entrants than Pit Boxes.
+* Added a new `/timetable.json` endpoint to the Assetto Corsa Server HTTP port. This is rate limited to 1 request per IP per second.
+* Added ACSR Ratings to the Championship Standings API, showing the ACSR ratings of all drivers in those standings (if the Championship has ACSR enabled).
+* It is now possible to specify individual Server Manager monitoring types that can be enabled by using the `monitoring.allowed` key in the config.yml. See the attached config.yml in the Server Manager download for more information on this new configuration option.
+* Added "Disable Safety" setting to Championship ACSR options, if this setting is enabled drivers will not gain or lose any safety rating from events in the Championship. Can be activated retroactively, but ACSR will take up to 24 hours to update and rescan existing results.
+* In multi-class Championships, the Sign Up Form now has a separate "Class" select, which makes it more obvious that multiple classes are available to choose from even if the classes both have the same car (e.g. for Pro and Amateur classes).
+* Improved the Championship Sign Up Form skin selector.
+
+Fixed:
+
+* Fixed a rare race condition that could cause session results to duplicate leaderboard entries at the end of a session.
+* Fixed an issue where a driver's team and ping statistics may be missing from the session results overview table.
+* Fixed alignment issues with Pit Window options when editing a race session.
+* The car search now displays cars in alphabetical order when no search terms have been entered.
+* Modifying a time penalty that has resulted in an adjusted number of completed laps will now properly re-calculate the number of completed laps for the new time penalty.
+* The `/healthcheck.json` endpoint now allows HEAD requests, making it compatible with uptime monitoring services.
+
+---
+
+
 v2.4.12
 -------
 

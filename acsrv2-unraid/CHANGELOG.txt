@@ -1,3 +1,39 @@
+v2.4.17
+-------
+
+Fixed:
+
+* Fixed a rare issue where a Server Manager crash could occur while handling CSP Lua App communications.
+* Improved error handling in the Assetto Corsa Server.
+
+---
+
+v2.4.16
+-------
+
+Added:
+
+* Added a new "Realtime" app that can be activated from the Rules section of the race form. The ACSM Realtime app works similarly to the default realtime app but also correctly keeps track of driver positions in driver swap scenarios and remembers details about laps across reconnects. It also can optionally display each drivers last lap time and always displays driver ping.
+* Added a new "Penalties" app that displays the current ACSM warning/penalty status and alerts for warnings or penalties (cuts, collisions, long pits and penalties given by admins) to every connected driver. The app will be automatically enabled if any ACSM penalties are enabled and the "Enable ACSM Custom Shaders Patch Scripts" switch on the Server Options page is enabled.
+* Bans can now be temporary, when banning a driver from the Blocklist page in the Manager you can add a ban duration in the form. When using an admin command you can add the duration in the following format, this example would ban the driver for 12 hours: `/ban 12345678987654321 12 "reckless driving"`.
+* Added the ability for drivers to stop the One Shot Qualifying message from appearing in every One Shot Qualifying session (on the current server) by clicking the "Don't show this popup again on this server" button in the popup.
+* Simplified event titles in the Championship Overview table to R1, R2 etc. Full details can still be seen by hovering over the title. Events that have not been completed will now display "-" in the Overview table instead of "DNS".
+* Content folder names are now displayed on the content list pages.
+* Added "Live Weather Disable Rain" setting to the Live Weather to the race form (when Live Weather is enabled), if enabled CSP rain intensity will remain at 0 regardless of the rain level reported by the weather API.  
+* Pure/Sol Weather presets are now bundled with the Manager, with our thanks to Peter Boese, simplifying the setup process for using CSP weather with those presets.
+
+Fixed:
+
+* The Collision Replay Cleanup maintenance task will no longer error if no collision replays are present.
+* Fixed an issue that could cause some CSP Lua Scripts to fail to load when using a locked entry list.
+* Fixed an issue that could cause BoP penalties to double when leaving and rejoining the server with a penalty then receiving another penalty.
+* Custom Races, Championships and Race Weekends will now properly transfer configured Required Apps between Manager instances when exported and imported.
+* Improved DRS Lua App detection system, and added a key for the different DRS icons in the in-game settings menu.
+* Championship Loading Images will now be applied for Race Weekend sessions as well as normal events in a Championship.
+* Fixed an issue where Race Weekend sessions would not respect Championship Discord Notification override settings, and would send normal event start notifications.
+
+---
+
 v2.4.15
 -------
 
